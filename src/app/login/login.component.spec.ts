@@ -38,4 +38,11 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should login', () => {
+    component.loginForm.value.username = 'simon';
+    component.login();
+
+    expect(localStorage.username).toBe('simon');
+  });
 });

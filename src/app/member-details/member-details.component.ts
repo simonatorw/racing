@@ -40,7 +40,9 @@ export class MemberDetailsComponent implements OnInit, OnChanges, OnDestroy {
     private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    //this.id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    this.route.paramMap.subscribe(pmap => this.id = parseInt(pmap.get('id'), 10));
+    //this.id = 0;
 
     this.memberForm = this.fb.group({
       firstName: new FormControl('', Validators.required),
